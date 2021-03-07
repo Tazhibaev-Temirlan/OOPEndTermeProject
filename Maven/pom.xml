@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Maven</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
+    <!-- https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api -->
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/javax.persistence -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.pengrad/java-telegram-bot-api -->
+		<dependency>
+    		<groupId>com.github.pengrad</groupId>
+    		<artifactId>java-telegram-bot-api</artifactId>
+    		<version>4.9.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate.ogm/hibernate-ogm-mongodb -->
+		<dependency>
+    		<groupId>org.hibernate.ogm</groupId>
+    		<artifactId>hibernate-ogm-mongodb</artifactId>
+    		<version>5.4.1.Final</version>
+		</dependency>
+		
+    </dependencies>
+    <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources/META-INF</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>persistence.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
+
+
+    </build>
+</project>

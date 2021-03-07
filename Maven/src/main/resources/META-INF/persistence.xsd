@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://java.sun.com/xml/ns/persistence" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="persistence" type="per:persistenceType" xmlns:per="http://java.sun.com/xml/ns/persistence"/>
+  <xs:complexType name="propertyType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="value" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="propertiesType">
+    <xs:sequence>
+      <xs:element type="per:propertyType" name="property" maxOccurs="unbounded" minOccurs="0" xmlns:per="http://java.sun.com/xml/ns/persistence"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="persistence-unitType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="provider"/>
+      <xs:element type="xs:string" name="class"/>
+      <xs:element type="per:propertiesType" name="properties" xmlns:per="http://java.sun.com/xml/ns/persistence"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name"/>
+    <xs:attribute type="xs:string" name="transaction-type"/>
+  </xs:complexType>
+  <xs:complexType name="persistenceType">
+    <xs:sequence>
+      <xs:element type="per:persistence-unitType" name="persistence-unit" xmlns:per="http://java.sun.com/xml/ns/persistence"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="version"/>
+  </xs:complexType>
+</xs:schema>
