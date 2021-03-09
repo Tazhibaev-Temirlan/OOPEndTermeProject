@@ -64,7 +64,7 @@ public class App {
                                     "Sneakers: 'Lacoste'\n"+"id: LK20074\n"+"Quantity in stock: 10\n"+"Cost: 46 890tg 6̶6̶ ̶9̶9̶0̶t̶g̶"));
 
                             bot.execute(new SendMessage(update.message().chat().id(), "Please, send me your chosen product id after command /buy in one sentence separated by space"));
-                        } if (update.message().text().contains("/buy") && update.message().text().length()>5) {//here we write the conditions for the purchase
+                        }else if (update.message().text().contains("/buy") && update.message().text().length()>5) {//here we write the conditions for the purchase
                             String[] entityO = update.message().text().split(" ");//here we create an array of words in order to split sentence into separate words
                                 Order order = new Order();//we create new order
                                 order.setProduct_id(entityO[1]);//we set id product id
@@ -73,31 +73,26 @@ public class App {
                                 connector.getCustomerService().save(customer);//we confirm all changes for customer_table in dbms
                                 bot.execute(new SendMessage(update.message().chat().id(), "We got your order."));
 
-                        } if (update.message().text().contains("/change1") && update.message().text().length()>9) {//next comes the name change condition
+                        }else if (update.message().text().contains("/change1") && update.message().text().length()>9) {//next comes the name change condition
                             String[] entityC = update.message().text().split(" ");//we again split sentence to words
                             customer.setName(entityC[1]);//change name in dbms to chosen
                             connector.getCustomerService().save(customer);//confirm all changes for customer_table in dbms
                             bot.execute(new SendMessage(update.message().chat().id(), "We change your name."));
-                        } if (update.message().text().contains("/change2") && update.message().text().length()>9) {//next comes the surname change condition
+                        }else if (update.message().text().contains("/change2") && update.message().text().length()>9) {//next comes the surname change condition
                             String[] entityC = update.message().text().split(" ");//another one
                             customer.setSurname(entityC[1]);//change surname in dbms to chosen
                             connector.getCustomerService().save(customer);//confirm all changes for customer_table in dbms
                             bot.execute(new SendMessage(update.message().chat().id(), "We change your surname."));
-                        } if (update.message().text().contains("/change3") && update.message().text().length()>9) {//next comes the phone number change condition
+                        }else if (update.message().text().contains("/change3") && update.message().text().length()>9) {//next comes the phone number change condition
                             String[] entityC = update.message().text().split(" ");// another one split sentence to words
-                            if(entityC[1]==null){
-                                bot.execute(new SendMessage(update.message().chat().id(), "your send empty date"));
-                            }
-                            if(entityC[1]!=null) {
                                 customer.setPhone(entityC[1]);//change phone number in dbms to chosen
                                 connector.getCustomerService().save(customer);//confirm all changes in customer_table
                                 bot.execute(new SendMessage(update.message().chat().id(), "We change your number."));
-                            }
-                        } if (update.message().text().contains("/info") && update.message().text().length()>6) {//just display information about the profile
+                        }else if (update.message().text().contains("/info") && update.message().text().length()>6) {//just display information about the profile
                             bot.execute(new SendMessage(update.message().chat().id(),//before that, we used the findById method all changes are made by operating on this part
                                     // and for output you only need to specify the user id through which we work
                                     customer.getName()+" "+customer.getSurname()+" "+ customer.getPhone()));//id we have this chat id through which the telegram user interacts
-                        } if (update.message().text().contains("/help") && update.message().text().length()>6) {//just display information about chat commands
+                        }else if (update.message().text().contains("/help") && update.message().text().length()>6) {//just display information about chat commands
                             bot.execute(new SendMessage(update.message().chat().id(), "Hello, this is a list of commands to change first name last name phone number in the database of our store.\n" +
                                     "If you want see your profile write command '/info'\n" +
                                     "If you want change your name to correct you need write '/change1' + (your correct name)\n" +
