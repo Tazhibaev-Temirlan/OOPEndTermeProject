@@ -16,7 +16,7 @@ public class App {
          this is the name of the list configurations of our database
          then the service 'Hibernate' connect us to the database through advance the prescribed metadata/characteristics
         */
-        String Token ="1665017257:AAF99KJaWe8MDDfMgjjaUtihnh7U_vWBd3s";//out token
+        String Token ="";//out token
         TelegramBot bot= new TelegramBot(Token);//we create our bot with our token
 
         bot.setUpdatesListener(updates -> {//we check all updates from bot
